@@ -14,7 +14,7 @@ pipeline "retrive_scan_result" {
   }
 
   // step "pipeline" "retrive_uuid" {
-    step "pipeline" "submit_url_scan" {
+  step "pipeline" "submit_url_scan" {
     pipeline = pipeline.submit_url_scan
 
     args = {
@@ -32,11 +32,11 @@ pipeline "retrive_scan_result" {
     method = "get"
     //url    = "https://urlscan.io/api/v1/result/${param.uuid}"
     // url    = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
-    url    = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
+    url = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
     // url    = "https://urlscan.io/api/v1/result/8e4395dd-1ac6-4685-bf77-e0ddccbc10fe"
     request_headers = {
-      Content-Type  = "application/json"
-      API-Key = param.api_key
+      Content-Type = "application/json"
+      API-Key      = param.api_key
     }
 
   }

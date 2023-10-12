@@ -12,8 +12,8 @@ pipeline "list_user_quotas" {
     method = "get"
     url    = "https://urlscan.io/user/quotas/"
     request_headers = {
-      Content-Type  = "application/json"
-      API-Key = "${param.api_key}"
+      Content-Type = "application/json"
+      API-Key      = param.api_key
     }
   }
 

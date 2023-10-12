@@ -8,7 +8,6 @@ pipeline "list_user_quotas" {
   }
 
   step "http" "list_user_quotas" {
-    title  = "Get the user quota list."
     method = "get"
     url    = "https://urlscan.io/user/quotas/"
     request_headers = {

@@ -1,5 +1,3 @@
-# Result API, Screenshots & DOM snapshots
-
 pipeline "retrive_scan_result" {
   description = "Retrive specific scan results."
 
@@ -13,7 +11,6 @@ pipeline "retrive_scan_result" {
     default = var.url
   }
 
-  // step "pipeline" "retrive_uuid" {
   step "pipeline" "submit_url_scan" {
     pipeline = pipeline.submit_url_scan
 
@@ -34,17 +31,12 @@ pipeline "retrive_scan_result" {
 
   step "http" "retrive_scan_result" {
     depends_on = [step.sleep.sleep]
-    title      = "Retrive specific scan results."
     method     = "get"
     url        = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
     request_headers = {
       Content-Type = "application/json"
       API-Key      = param.api_key
     }
-  }
-
-  output "foo" {
-    value = step.echo.echo_pipelineresult.text
   }
 
   output "response_body" {

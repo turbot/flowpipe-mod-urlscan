@@ -1,5 +1,4 @@
 
-# Submission API
 pipeline "submit_url_scan" {
   description = "URL for analysis."
 
@@ -14,7 +13,6 @@ pipeline "submit_url_scan" {
   }
 
   step "http" "submit_url_scan" {
-    title  = "Scans the URL."
     method = "post"
     url    = "https://urlscan.io/api/v1/scan/"
     request_headers = {

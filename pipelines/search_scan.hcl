@@ -1,5 +1,3 @@
-# Search API
-
 pipeline "search_scan" {
   description = "Search based on query."
 
@@ -24,7 +22,6 @@ pipeline "search_scan" {
   }
 
   step "http" "search_scan" {
-    title  = "Search for scans based on specific criteria."
     method = "get"
     url    = "https://urlscan.io/api/v1/search/?q=${param.query_term}"
 

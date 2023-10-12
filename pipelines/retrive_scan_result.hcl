@@ -18,8 +18,14 @@ pipeline "retrive_scan_result" {
     pipeline = pipeline.submit_url_scan
 
     args = {
-      url = param.url
+      url     = param.url
+      api_key = param.api_key
     }
+  }
+
+  step "sleep" "sleep" {
+    depends_on = [step.pipeline.submit_url_scan]
+    duration   = "30s"
   }
 
   step "echo" "echo_pipelineresult" {
@@ -27,28 +33,28 @@ pipeline "retrive_scan_result" {
   }
 
   step "http" "retrive_scan_result" {
-    // depends_on = [step.pipeline.retrive_uuid]
-    title  = "Retrive specific scan results."
-    method = "get"
-    //url    = "https://urlscan.io/api/v1/result/${param.uuid}"
-    // url    = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
-    url = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
-    // url    = "https://urlscan.io/api/v1/result/8e4395dd-1ac6-4685-bf77-e0ddccbc10fe"
+    depends_on = [step.sleep.sleep]
+    title      = "Retrive specific scan results."
+    method     = "get"
+    url        = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
     request_headers = {
       Content-Type = "application/json"
       API-Key      = param.api_key
     }
-
   }
 
-  // output "response_body" {
-  //   value = step.http.retrive_scan_result.response_body
-  // }
-  // output "response_headers" {
-  //   value = step.http.retrive_scan_result.response_headers
-  // }
-  // output "status_code" {
-  //   value = step.http.retrive_scan_result.status_code
-  // }
+  output "foo" {
+    value = step.echo.echo_pipelineresult.text
+  }
+
+  output "response_body" {
+    value = step.http.retrive_scan_result.response_body
+  }
+  output "response_headers" {
+    value = step.http.retrive_scan_result.response_headers
+  }
+  output "status_code" {
+    value = step.http.retrive_scan_result.status_code
+  }
 
 }

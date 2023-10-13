@@ -16,14 +16,9 @@ pipeline "list_user_quotas" {
     }
   }
 
-  output "response_body" {
-    value = step.http.list_user_quotas.response_body
-  }
-  output "response_headers" {
-    value = step.http.list_user_quotas.response_headers
-  }
-  output "status_code" {
-    value = step.http.list_user_quotas.status_code
+  output "quota_details" {
+    description = "Details about the user quota."
+    value       = step.http.list_user_quotas.response_body
   }
 
 }

@@ -26,18 +26,9 @@ pipeline "submit_url_scan" {
 
   }
 
-  output "response_body" {
-    value = jsondecode(step.http.submit_url_scan.response_body)
-  }
-  output "response_headers" {
-    value = http.submit_url_scan.response_headers
-  }
-  output "status_code" {
-    value = jsondecode(step.http.submit_url_scan.status_code)
-  }
-  output "uuid" {
-    // value = jsondecode(step.http.submit_url_scan.response_body)["uuid"]
-    value = jsondecode(step.http.submit_url_scan.response_body).uuid
+  output "url_scan" {
+    description = " Details about provided URL."
+    value       = jsondecode(step.http.submit_url_scan.response_body)
   }
 
 }

@@ -39,14 +39,9 @@ pipeline "retrive_scan_result" {
     }
   }
 
-  output "response_body" {
-    value = step.http.retrive_scan_result.response_body
-  }
-  output "response_headers" {
-    value = step.http.retrive_scan_result.response_headers
-  }
-  output "status_code" {
-    value = step.http.retrive_scan_result.status_code
+  output "scan_result" {
+    description = "Details about specific scan uuid."
+    value       = step.http.retrive_scan_result.response_body
   }
 
 }

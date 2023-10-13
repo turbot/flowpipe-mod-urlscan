@@ -31,14 +31,9 @@ pipeline "search_scan" {
     }
   }
 
-  output "response_body" {
-    value = jsondecode(step.http.search_scan.response_body)
-  }
-  output "response_headers" {
-    value = step.http.search_scan.response_headers
-  }
-  output "status_code" {
-    value = step.http.search_scan.status_code
+  output "scan_result" {
+    description = "Details about the scan."
+    value = step.http.search_scan.response_body
   }
 
 }

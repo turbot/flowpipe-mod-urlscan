@@ -1,14 +1,16 @@
 pipeline "retrive_scan_result" {
+  title       = "Retrive Scan Result"
   description = "Retrive specific scan results."
 
   param "api_key" {
-    type    = string
-    default = var.api_key
+    type        = string
+    description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "url" {
-    type    = string
-    default = var.url
+    type        = string
+    description = "The URL to be scanned."
   }
 
   step "pipeline" "submit_url_scan" {

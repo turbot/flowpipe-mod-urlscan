@@ -1,7 +1,1 @@
-api_key="7a2c1234-54cd-48a4-a317-1234629b92c3"
-url="https://google.com/"
-uuid="55ad435b-a89a-470d-b7bf-1540bb55a121"
-query_term="domain:turbot.com"
-#query_term="ip:8.8.8.8"
-#query_term="page.url:steampipe.io"
-#query_term="page.url:\"https://steampipe.io/downloads\""
+api_key=<Urlscan_API_Key>

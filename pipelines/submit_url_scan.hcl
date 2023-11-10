@@ -1,15 +1,17 @@
 
 pipeline "submit_url_scan" {
-  description = "URL for analysis."
+  title       = "Submit URL Scan"
+  description = "Submit URL for analysis."
 
   param "api_key" {
-    type    = string
-    default = var.api_key
+    type        = string
+    description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "url" {
-    type    = string
-    default = var.url
+    type        = string
+    description = "The URL to be scanned."
   }
 
   step "http" "submit_url_scan" {

@@ -1,10 +1,10 @@
 mod "urlscan" {
-  title         = "urlscan"
+  title         = "Urlscan Library"
   description   = "Run pipelines and triggers that interact with urlscan."
-  #color         = "#191717"
+  color         = "#0056B3"
   documentation = file("./docs/index.md")
   icon          = "/images/flowpipe/mods/turbot/urlscan.svg"
-  categories    = ["urlscan"]
+  categories    = ["urlscan", "library"]
 
   opengraph {
     title       = "urlscan"

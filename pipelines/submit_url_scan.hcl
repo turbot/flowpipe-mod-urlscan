@@ -1,4 +1,3 @@
-
 pipeline "submit_url_scan" {
   title       = "Submit URL Scan"
   description = "Submit URL for analysis."

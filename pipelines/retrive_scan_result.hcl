@@ -1,5 +1,5 @@
-pipeline "retrive_scan_result" {
-  title       = "Retrive Scan Result"
+pipeline "retrive_scan_results" {
+  title       = "Retrive Scan Results"
   description = "Retrive specific scan results."
 
   param "api_key" {
@@ -31,7 +31,7 @@ pipeline "retrive_scan_result" {
     text = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
   }
 
-  step "http" "retrive_scan_result" {
+  step "http" "retrive_scan_results" {
     depends_on = [step.sleep.sleep]
     method     = "get"
     url        = "https://urlscan.io/api/v1/result/${step.pipeline.submit_url_scan.uuid}"
@@ -41,7 +41,7 @@ pipeline "retrive_scan_result" {
     }
   }
 
-  output "scan_result" {
+  output "scan_results" {
     description = "Details about specific scan uuid."
     value       = step.http.retrive_scan_result.response_body
   }

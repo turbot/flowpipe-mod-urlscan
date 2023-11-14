@@ -1,4 +1,4 @@
-pipeline "search_scan" {
+pipeline "search_scans" {
   title       = "Search Archived Scans on Urlscan.io"
   description = "Search archived scans of URLs on urlscan.io."
 
@@ -25,7 +25,7 @@ pipeline "search_scan" {
     optional    = true
   }
 
-  step "http" "search_scan" {
+  step "http" "search_scans" {
     method = "get"
     url    = "https://urlscan.io/api/v1/search/?q=${param.query_term}"
 

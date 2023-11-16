@@ -1,3 +1,7 @@
+---
+repository: "https://github.com/turbot/flowpipe-mod-urlscan"
+---
+
 # Urlscan Mod for Flowpipe
 
 A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
@@ -6,8 +10,6 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 - List User Quotas
 - Search Archived Scans
 - And more!
-
-<!-- ![image](https://github.com/turbot/flowpipe-mod-urlscan/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
 
 ## Documentation
 

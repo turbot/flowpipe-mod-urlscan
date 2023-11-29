@@ -1,6 +1,6 @@
-pipeline "search_scans" {
-  title       = "Search Archived Scans on Urlscan.io"
-  description = "Search archived scans of URLs on urlscan.io."
+pipeline "search_scan" {
+  title       = "Search Scan"
+  description = "Find archived scans of URLs on urlscan.io."
 
   param "api_key" {
     type        = string
@@ -8,7 +8,7 @@ pipeline "search_scans" {
     default     = var.api_key
   }
 
-  param "query_term" {
+  param "query" {
     type        = string
     description = "The query term (ElasticSearch Query String Query)."
   }
@@ -21,13 +21,15 @@ pipeline "search_scans" {
 
   param "search_after" {
     type        = string
-    description = "For retrieving the next batch of results."
+    description = "For retrieving the next batch of results, value of the sort attribute of the last (oldest) result you received (comma-separated)."
     optional    = true
   }
 
-  step "http" "search_scans" {
+  step "http" "search_scan" {
     method = "get"
-    url    = "https://urlscan.io/api/v1/search/?q=${param.query_term}"
+
+    url = join("&", concat(["https://urlscan.io/api/v1/search/?"],
+    [for name, value in param : "${local.search_scan_query_params[name]}=${urlencode(value)}" if contains(keys(local.search_scan_query_params), name) && value != null]))
 
     request_headers = {
       Content-Type = "application/json"
@@ -35,7 +37,7 @@ pipeline "search_scans" {
     }
   }
 
-  output "scan_result" {
+  output "search_results" {
     description = "Details about the scan."
     value       = step.http.search_scan.response_body
   }

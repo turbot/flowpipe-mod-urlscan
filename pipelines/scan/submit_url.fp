@@ -1,6 +1,6 @@
-pipeline "submit_url_scan" {
-  title       = "Submit URL Scan"
-  description = "Submit URL for analysis."
+pipeline "submit_url" {
+  title       = "Submit URL"
+  description = "Submit a URL to be scanned."
 
   param "api_key" {
     type        = string
@@ -13,9 +13,10 @@ pipeline "submit_url_scan" {
     description = "The URL to be scanned."
   }
 
-  step "http" "submit_url_scan" {
+  step "http" "submit_url" {
     method = "post"
     url    = "https://urlscan.io/api/v1/scan/"
+
     request_headers = {
       Content-Type = "application/json"
       API-Key      = param.api_key
@@ -24,12 +25,10 @@ pipeline "submit_url_scan" {
     request_body = jsonencode({
       url = param.url
     })
-
   }
 
-  output "url_scan" {
-    description = " Details about provided URL."
-    value       = jsondecode(step.http.submit_url_scan.response_body)
+  output "task" {
+    description = "The details of the submitted task."
+    value       = step.http.submit_url.response_body
   }
-
 }

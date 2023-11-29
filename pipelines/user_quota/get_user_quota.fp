@@ -1,6 +1,6 @@
-pipeline "list_user_quotas" {
-  title       = "List User Quotas"
-  description = "Get the user quota list."
+pipeline "get_user_quota" {
+  title       = "Get User Quota"
+  description = "Get your current limits and used quota."
 
   param "api_key" {
     type        = string
@@ -8,7 +8,7 @@ pipeline "list_user_quotas" {
     default     = var.api_key
   }
 
-  step "http" "list_user_quotas" {
+  step "http" "get_user_quota" {
     method = "get"
     url    = "https://urlscan.io/user/quotas/"
 
@@ -18,9 +18,9 @@ pipeline "list_user_quotas" {
     }
   }
 
-  output "quota_details" {
-    description = "Details about the user quota."
-    value       = step.http.list_user_quotas.response_body
+  output "user_quota" {
+    description = "The current limits and used quota."
+    value       = step.http.get_user_quota.response_body
   }
 
 }

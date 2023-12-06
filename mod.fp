@@ -1,5 +1,5 @@
 mod "urlscan" {
-  title         = "Urlscan"
+  title         = "Urlscan Mod for Flowpipe"
   description   = "Run pipelines to supercharge your Urlscan workflows using Flowpipe."
   color         = "#D2624D"
   documentation = file("./docs/index.md")

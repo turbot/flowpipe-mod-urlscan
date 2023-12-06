@@ -1,6 +1,6 @@
 # Common descriptions
 locals {
-  api_key_param_description = "A unique identifier required to authenticate and interact with the Urlscan APIs."
+  cred_param_description    = "Name for credentials to use. If not provided, the default credentials will be used."
 }
 
 locals {

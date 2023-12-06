@@ -2,10 +2,10 @@ pipeline "get_user_quota" {
   title       = "Get User Quota"
   description = "Get your current limits and used quota."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = "default"
   }
 
   step "http" "get_user_quota" {
@@ -14,7 +14,7 @@ pipeline "get_user_quota" {
 
     request_headers = {
       Content-Type = "application/json"
-      API-Key      = param.api_key
+      API-Key      = credential.urlscan[param.cred].api_key
     }
   }
 

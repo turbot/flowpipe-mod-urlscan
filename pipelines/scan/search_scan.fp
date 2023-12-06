@@ -2,10 +2,10 @@ pipeline "search_scan" {
   title       = "Search Scan"
   description = "Find archived scans of URLs on urlscan.io."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "query" {
@@ -30,7 +30,7 @@ pipeline "search_scan" {
 
     request_headers = {
       Content-Type = "application/json"
-      API-Key      = param.api_key
+      API-Key      = credential.urlscan[param.cred].api_key
     }
   }
 

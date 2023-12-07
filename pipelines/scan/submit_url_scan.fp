@@ -2,6 +2,10 @@ pipeline "submit_url_scan" {
   title       = "Submit URL Scan"
   description = "Submit an URL to be scanned."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description

@@ -1,4 +1,4 @@
-# Urlscan Mod for Flowpipe
+# urlscan.io Mod for Flowpipe
 
 A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 
@@ -7,7 +7,7 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 - Search Archived Scans
 - And more!
 
-<!-- ![image](https://github.com/turbot/flowpipe-mod-urlscan/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
+<!-- ![image](https://github.com/turbot/flowpipe-mod-urlscanio/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
 
 ## Documentation
 
@@ -27,8 +27,8 @@ brew install flowpipe
 Clone:
 
 ```sh
-git clone https://github.com/turbot/flowpipe-mod-urlscan.git
-cd flowpipe-mod-urlscan
+git clone https://github.com/turbot/flowpipe-mod-urlscanio.git
+cd flowpipe-mod-urlscanio
 ```
 
 ### Configuration
@@ -67,7 +67,7 @@ flowpipe pipeline run get_user_quota
 To pass values into pipeline [parameters](https://flowpipe.io/docs/using-flowpipe/pipeline-parameters), use the following syntax:
 
 ```sh
-flowpipe pipeline run submit_url --arg url=steampipe.io
+flowpipe pipeline run submit_url_scan --arg url="steampipe.io"
 ```
 
 Multiple pipeline args can be passed in with separate `--arg` flags.
@@ -85,10 +85,10 @@ Please see the [contribution guidelines](https://github.com/turbot/flowpipe/blob
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
-- [Urlscan Mod](https://github.com/turbot/flowpipe-mod-urlscan/labels/help%20wanted)
+- [Urlscan Mod](https://github.com/turbot/flowpipe-mod-urlscanio/labels/help%20wanted)
 
 ## License
 
-This mod is licensed under the [Apache License 2.0](https://github.com/turbot/flowpipe-mod-urlscan/blob/main/LICENSE).
+This mod is licensed under the [Apache License 2.0](https://github.com/turbot/flowpipe-mod-urlscanio/blob/main/LICENSE).
 
 Flowpipe is licensed under the [AGPLv3](https://github.com/turbot/flowpipe/blob/main/LICENSE).

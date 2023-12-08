@@ -4,7 +4,7 @@ mod "urlscanio" {
   color         = "#D2624D"
   documentation = file("./docs/index.md")
   icon          = "/images/flowpipe/mods/turbot/urlscanio.svg"
-  categories    = ["urlscanio"]
+  categories    = ["security"]
 
   opengraph {
     title       = "urlscan.io"

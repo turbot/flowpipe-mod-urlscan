@@ -34,7 +34,7 @@ pipeline "search_scan" {
     }
   }
 
-  output "search_results" {
+  output "search_scan_results" {
     description = "Details about the scan."
     value       = flatten([for entry in step.http.search_scan : entry.response_body.results])
   }

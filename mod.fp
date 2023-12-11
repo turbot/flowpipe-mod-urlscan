@@ -1,14 +1,14 @@
 mod "urlscanio" {
-  title         = "urlscan.io"
-  description   = "Run pipelines to supercharge your urlscan.io workflows using Flowpipe."
+  title         = "URLScan.io"
+  description   = "Run pipelines to supercharge your URLScan.io workflows using Flowpipe."
   color         = "#D2624D"
   documentation = file("./docs/index.md")
-  icon          = "/images/flowpipe/mods/turbot/urlscanio.svg"
+  icon          = "/images/mods/turbot/urlscanio.svg"
   categories    = ["security"]
 
   opengraph {
-    title       = "urlscan.io"
-    description = "Run pipelines to supercharge your urlscan.io workflows using Flowpipe."
-    image       = "/images/flowpipe/mods/turbot/urlscanio-social-graphic.png"
+    title       = "URLScan.io Mod for Flowpipe"
+    description = "Run pipelines to supercharge your URLScan.io workflows using Flowpipe."
+    image       = "/images//mods/turbot/urlscanio-social-graphic.png"
   }
 }

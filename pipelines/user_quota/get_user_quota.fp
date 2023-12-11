@@ -22,5 +22,4 @@ pipeline "get_user_quota" {
     description = "The current limits and used quota."
     value       = step.http.get_user_quota.response_body
   }
-
 }

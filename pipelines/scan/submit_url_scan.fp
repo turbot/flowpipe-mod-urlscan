@@ -31,7 +31,7 @@ pipeline "submit_url_scan" {
     })
   }
 
-  output "scan_result" {
+  output "url_scan_result" {
     description = "The details of the submitted url scan."
     value       = step.http.submit_url_scan.response_body
   }

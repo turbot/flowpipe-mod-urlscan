@@ -32,7 +32,7 @@ pipeline "submit_url_scan" {
   }
 
   output "url_scan_result" {
-    description = "The details of the submitted url scan."
+    description = "The details of the submitted URL scan."
     value       = step.http.submit_url_scan.response_body
   }
 }

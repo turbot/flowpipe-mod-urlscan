@@ -4,7 +4,7 @@ URLScan.io pipeline library for [Flowpipe](https://flowpipe.io), enabling seamle
 
 ## Documentation
 
-- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/aws/pipelines)**
+- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/urlscan/pipelines)**
 
 ## Getting Started
 

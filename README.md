@@ -76,6 +76,9 @@ flowpipe pipeline run get_user_quota --arg cred=my_urlscan
 
 For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).
 
+### Configuration
+
+No additional configuration is required.
 
 ## Open Source & Contributing
 

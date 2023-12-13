@@ -1,20 +1,16 @@
-# Urlscan Mod for Flowpipe
+# URLScan.io Mod for Flowpipe
 
-A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
-
-- Submit URL Scans
-- List User Quotas
-- Search Archived Scans
-- And more!
-
-<!-- ![image](https://github.com/turbot/flowpipe-mod-urlscan/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
+URLScan.io pipeline library for [Flowpipe](https://flowpipe.io), enabling seamless integration of URLScan.io services into your workflows.
 
 ## Documentation
 
 - **[Pipelines →](https://hub.flowpipe.io/mods/turbot/urlscan/pipelines)**
-- **[Triggers →](https://hub.flowpipe.io/mods/turbot/urlscan/triggers)**
 
-## Getting started
+## Getting Started
+
+### Requirements
+
+Docker daemon must be installed and running. Please see [Install Docker Engine](https://docs.docker.com/engine/install/) for more information.
 
 ### Installation
 
@@ -28,68 +24,73 @@ brew install flowpipe
 Clone:
 
 ```sh
-git clone https://github.com/turbot/flowpipe-mod-urlscan.git
-cd flowpipe-mod-urlscan
+git clone https://github.com/turbot/flowpipe-mod-urlscanio.git
+cd flowpipe-mod-urlscanio
 ```
 
-### Configuration
+### Credentials
 
-Configure your credentials:
+By default, the following environment variables will be used for authentication:
+
+- `URLSCAN_API_KEY`
+
+You can also create `credential` resources in configuration files:
 
 ```sh
-cp flowpipe.pvars.example flowpipe.pvars
-vi flowpipe.pvars
+vi ~/.flowpipe/config/urlscan.fpc
 ```
 
-It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.pvars` file.
+```hcl
+credential "urlscan" "my_urlscan" {
+  api_key = "AKIA...2"
+}
+```
 
-**Note:** Credentials can also be passed in each pipeline run with `--pipeline-arg api_key=f1f7962d-cda9-4cdf-a82a-079babsadsad`.
-
-Additional input variables may be defined in the mod's `variables.hcl` file that can be configured to better match your environment and requirements.
-
-Variables with defaults set do not need to be explicitly set, but it may be helpful to override them.
+For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
 
 ### Usage
 
-Start the Flowpipe server to get started:
+List pipelines:
 
 ```sh
-flowpipe service start
+flowpipe pipeline list
 ```
 
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run submit_url_scan
+flowpipe pipeline run get_user_quota
 ```
 
-## Passing pipeline arguments
-
-To pass values into pipeline [parameters](https://flowpipe.io/docs/using-flowpipe/pipeline-parameters), use the following syntax:
+You can pass in pipeline arguments as well:
 
 ```sh
-flowpipe pipeline run submit_url_scan --pipeline-arg url=steampipe.io
+flowpipe pipeline run submit_url_scan --arg url="steampipe.io"
 ```
 
-Multiple pipeline args can be passed in with separate `--pipeline-arg` flags.
+To use a specific `credential`, specify the `cred` pipeline argument:
 
-For more information on passing arguments, please see [Pipeline Args](https://flowpipe.io/docs/using-flowpipe/pipeline-arguments).
+```sh
+flowpipe pipeline run get_user_quota --arg cred=my_urlscan
+```
 
-## Contributing
+For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).
 
-If you have an idea for additional controls or just want to help maintain and extend this mod ([or others](https://github.com/topics/flowpipe-mod)) we would love you to join the community and start contributing.
+### Configuration
 
-- **[Join #flowpipe in our Slack community ](https://flowpipe.io/community/join)**
+No additional configuration is required.
 
-Please see the [contribution guidelines](https://github.com/turbot/flowpipe/blob/main/CONTRIBUTING.md) and our [code of conduct](https://github.com/turbot/flowpipe/blob/main/CODE_OF_CONDUCT.md).
+## Open Source & Contributing
+
+This repository is published under the [Apache 2.0 license](https://www.apache.org/licenses/LICENSE-2.0). Please see our [code of conduct](https://github.com/turbot/.github/blob/main/CODE_OF_CONDUCT.md). We look forward to collaborating with you!
+
+[Flowpipe](https://flowpipe.io) is a product produced from this open source software, exclusively by [Turbot HQ, Inc](https://turbot.com). It is distributed under our commercial terms. Others are allowed to make their own distribution of the software, but cannot use any of the Turbot trademarks, cloud services, etc. You can learn more in our [Open Source FAQ](https://turbot.com/open-source).
+
+## Get Involved
+
+**[Join #flowpipe on Slack →](https://flowpipe.io/community/join)**
 
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
-- [Urlscan Mod](https://github.com/turbot/flowpipe-mod-urlscan/labels/help%20wanted)
-
-## License
-
-This mod is licensed under the [Apache License 2.0](https://github.com/turbot/flowpipe-mod-urlscan/blob/main/LICENSE).
-
-Flowpipe is licensed under the [AGPLv3](https://github.com/turbot/flowpipe/blob/main/LICENSE).
+- [URLScan.io Mod](https://github.com/turbot/flowpipe-mod-urlscanio/labels/help%20wanted)

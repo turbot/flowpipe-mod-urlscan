@@ -1,11 +1,15 @@
 pipeline "submit_url_scan" {
   title       = "Submit URL Scan"
-  description = "Submit URL for analysis."
+  description = "Submit an URL to be scanned."
 
-  param "api_key" {
+  tags = {
+    type = "featured"
+  }
+
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "url" {
@@ -16,20 +20,19 @@ pipeline "submit_url_scan" {
   step "http" "submit_url_scan" {
     method = "post"
     url    = "https://urlscan.io/api/v1/scan/"
+
     request_headers = {
       Content-Type = "application/json"
-      API-Key      = param.api_key
+      API-Key      = credential.urlscan[param.cred].api_key
     }
 
     request_body = jsonencode({
       url = param.url
     })
-
   }
 
-  output "url_scan" {
-    description = " Details about provided URL."
-    value       = jsondecode(step.http.submit_url_scan.response_body)
+  output "url_scan_result" {
+    description = "The details of the submitted URL scan."
+    value       = step.http.submit_url_scan.response_body
   }
-
 }

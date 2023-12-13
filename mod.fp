@@ -1,4 +1,4 @@
-mod "urlsacn" {
+mod "urlscan" {
   title         = "URLScan.io"
   description   = "Run pipelines to supercharge your URLScan.io workflows using Flowpipe."
   color         = "#D2624D"

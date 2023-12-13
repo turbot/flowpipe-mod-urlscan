@@ -50,7 +50,7 @@ flowpipe mod init
 [Install the URLScan.io mod](https://flowpipe.io/docs/build/mod-dependencies#mod-dependencies) as a dependency:
 
 ```sh
-flowpipe mod install github.com/turbot/flowpipe-mod-urlscanio
+flowpipe mod install github.com/turbot/flowpipe-mod-urlscan
 ```
 
 [Use the dependency](https://flowpipe.io/docs/build/write-pipelines/index) in a pipeline step:
@@ -79,8 +79,8 @@ flowpipe pipeline run my_pipeline
 Clone:
 
 ```sh
-git clone https://github.com/turbot/flowpipe-mod-urlscanio.git
-cd flowpipe-mod-urlscanio
+git clone https://github.com/turbot/flowpipe-mod-urlscan.git
+cd flowpipe-mod-urlscan
 ```
 
 List pipelines:
@@ -114,4 +114,4 @@ This repository is published under the [Apache 2.0 license](https://www.apache.o
 Want to help but not sure where to start? Pick up one of the `help wanted` issues:
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
-- [URLScan.io Mod](https://github.com/turbot/flowpipe-mod-urlscanio/labels/help%20wanted)
+- [URLScan.io Mod](https://github.com/turbot/flowpipe-mod-urlscan/labels/help%20wanted)

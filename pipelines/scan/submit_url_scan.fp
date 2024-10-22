@@ -3,13 +3,13 @@ pipeline "submit_url_scan" {
   description = "Submit an URL to be scanned."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.urlscan
+    description = local.conn_param_description
+    default     = connection.urlscan.default
   }
 
   param "url" {
@@ -23,7 +23,7 @@ pipeline "submit_url_scan" {
 
     request_headers = {
       Content-Type = "application/json"
-      API-Key      = credential.urlscan[param.cred].api_key
+      API-Key      = param.conn.api_key
     }
 
     request_body = jsonencode({

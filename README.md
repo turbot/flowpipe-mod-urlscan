@@ -17,25 +17,25 @@ brew tap turbot/tap
 brew install flowpipe
 ```
 
-### Credentials
+### Connections
 
 By default, the following environment variables will be used for authentication:
 
 - `URLSCAN_API_KEY`
 
-You can also create `credential` resources in configuration files:
+You can also create `connection` resources in configuration files:
 
 ```sh
 vi ~/.flowpipe/config/urlscan.fpc
 ```
 
 ```hcl
-credential "urlscan" "my_urlscan" {
+connection "urlscan" "my_urlscan" {
   api_key = "AKIA...2"
 }
 ```
 
-For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
+For more information on connections in Flowpipe, please see [Managing Connections](https://flowpipe.io/docs/run/connections).
 
 ### Usage
 
@@ -95,10 +95,10 @@ Run a pipeline:
 flowpipe pipeline run submit_url_scan --arg url="steampipe.io"
 ```
 
-To use a specific `credential`, specify the `cred` pipeline argument:
+To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run get_user_quota --arg cred=my_urlscan
+flowpipe pipeline run get_user_quota --arg conn=connection.urlscan.my_urlscan
 ```
 
 ## Open Source & Contributing
